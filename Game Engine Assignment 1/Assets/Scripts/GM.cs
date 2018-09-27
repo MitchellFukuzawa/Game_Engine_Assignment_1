@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour {
 
+    public bool gamePaused = false;
     public int lives = 3;
     public int bricks = 32;
     public float resetDelay = 1.0f;
@@ -17,6 +18,11 @@ public class GM : MonoBehaviour {
     public GameObject deathParticles;
     public static GM instance = null; //accessable from other scripts ex, GM.instance.bricks
 
+    public KeyCode left { get; set; }
+    public KeyCode right { get; set; }
+    public KeyCode start { get; set; }
+    public KeyCode restart { get; set; }
+
 
     private GameObject clonePaddle; 
 
@@ -25,13 +31,23 @@ public class GM : MonoBehaviour {
 	void Awake () {
 
         if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject); // Keep GM after Load
             instance = this; // check and see if we have a gm yet, if not then we set it to this
+        }
         else if (instance != this)
+        {
             Destroy(gameObject);
+        }
+        // These will save last saved rebindings, if any. Otherwise, will go back to these defaults
+        left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey", "A"));
+        right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey", "D"));
+        start = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("forwardKey", "Space"));
+        restart = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("backwardKey", "S"));
 
-        Setup(); 
-	}
-	
+        Setup();
+    }
+
     public void Setup()
     {
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
@@ -85,6 +101,9 @@ public class GM : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		
+        if (gamePaused)
+            Time.timeScale = 0.0f;
+        else
+            Time.timeScale = 0.0f;
 	}
 }
