@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    public Vector3 ballVelocity = new Vector3(100.0f, 100.0f, 0.0f);
+    public float ballInitialVelocity = 100000.0f;
 
     private Rigidbody rb;
-    private bool ballInPlay;
-    private Vector3 ballPausedVelocity;
+    private bool ballInPlay; 
 
-    // Use this for initialization
-
-    void Awake () {
+	// Use this for initialization
+	void Awake () {
 
         rb = GetComponent<Rigidbody>(); 
 
@@ -20,31 +18,13 @@ public class Ball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (ballInPlay == true)
+		
+        if (Input.GetButtonDown("Fire1") && ballInPlay == false)
         {
-            // Don't update if game is paused
-            if (GM.instance.gamePaused == true )
-            {
-                // Swap paused Vel with RB vel
-                if (rb.velocity.x != 0.0f && rb.velocity.y != 0.0f)
-                    ballPausedVelocity = rb.velocity;
-                rb.velocity = new Vector3(0.0f, 0.0f);
-                return;
-            }
-            else
-            {
-                // UnSwap paused Vel with RB vel
-                if (ballPausedVelocity.x != 0.0f && ballPausedVelocity.y != 0.0f)
-                    rb.velocity = ballPausedVelocity;
-                ballPausedVelocity = new Vector3(0.0f, 0.0f);
-            }
-        }
-        if (Input.GetKey(GM.instance.start) && ballInPlay == false && GM.instance.gamePaused == false)
-        { 
             transform.parent = null; //unparent ball from paddle 
             ballInPlay = true;
             rb.isKinematic = false;
-            rb.AddForce(new Vector3(ballVelocity.x * 5, ballVelocity.y * 5, 0)); 
+            rb.AddForce(new Vector3(ballInitialVelocity * 5, ballInitialVelocity * 5, 0)); 
         }
 
 	}
