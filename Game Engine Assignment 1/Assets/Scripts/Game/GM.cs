@@ -12,7 +12,7 @@ public class GM : MonoBehaviour {
     public Text livesText;
     public GameObject gameOver;
     public GameObject youWon;
-    public GameObject bricksPrefab; //instantiate new bricks
+    //public GameObject bricksPrefab; //instantiate new bricks
     public GameObject paddle;
     public GameObject deathParticles;
     public static GM instance = null; //accessable from other scripts ex, GM.instance.bricks
@@ -35,7 +35,7 @@ public class GM : MonoBehaviour {
     public void Setup()
     {
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
-        Instantiate(bricksPrefab, transform.position, Quaternion.identity); 
+        //Instantiate(bricksPrefab, transform.position, Quaternion.identity); 
     }
 
     void CheckGameOver()
