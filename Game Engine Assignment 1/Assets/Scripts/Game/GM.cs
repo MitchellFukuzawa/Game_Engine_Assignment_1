@@ -13,12 +13,10 @@ public class GM : MonoBehaviour {
     public GameObject gameOver;
     public GameObject youWon;
     //public GameObject bricksPrefab; //instantiate new bricks
-    public GameObject paddle;
     public GameObject deathParticles;
     public static GM instance = null; //accessable from other scripts ex, GM.instance.bricks
 
 
-    private GameObject clonePaddle; 
 
 
 	// Use this for initialization
@@ -34,7 +32,6 @@ public class GM : MonoBehaviour {
 	
     public void Setup()
     {
-        clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         //Instantiate(bricksPrefab, transform.position, Quaternion.identity); 
     }
 
@@ -67,15 +64,12 @@ public class GM : MonoBehaviour {
     {
         lives--;
         livesText.text = "Lives: " + lives;
-        Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
-        Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver(); 
     }
 
     void SetupPaddle()
     {
-        clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
     }
 
     public void Destroybrick()

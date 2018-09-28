@@ -6,42 +6,41 @@ namespace CommandDesign
 {
 	public abstract class Command
 	{
-		public abstract void Execute(Transform paddle, Command command);
-		public virtual void Undo(Transform paddle) {}
-		public virtual void Move(Transform paddle) {}
-		public float moveDistance = 1.0f;
+		public float moveDistance = 10.0f;
+		public abstract void Execute(Transform paddlePos, Command command);
+		public virtual void Move(Transform paddlePos) { }
 	}
 
 	public class MoveLeft : Command
 	{
-		public override void Execute(Transform paddle, Command command)
+		public override void Execute(Transform paddlePos, Command command)
 		{
-			Move(paddle);
+			Move(paddlePos);
 			// InputManager.oldCommands.Add(command);
 		}
 
-		public override void Move(Transform paddle)
+		public override void Move(Transform paddlePos)
 		{
-			paddle.Translate(-paddle.right * moveDistance);
+			paddlePos.Translate(-paddlePos.right * moveDistance);
 		}
 	}
 
 	public class MoveRight : Command
 	{
-		public override void Execute(Transform paddle, Command command)
+		public override void Execute(Transform paddlePos, Command command)
 		{
-			Move(paddle);
+			Move(paddlePos);
 			// InputManager.oldCommands.Add(command);
 		}
-		public override void Move(Transform paddle)
+		public override void Move(Transform paddlePos)
 		{
-			paddle.Translate(paddle.right * moveDistance);
+			paddlePos.Translate(paddlePos.right * moveDistance);
 		}
 	}
 	
 	public class DoNothing : Command
 	{
-		public override void Execute(Transform paddle, Command command)
+		public override void Execute(Transform paddlePos, Command command)
 		{
 			// Do nothing if this key is pressed
 		}

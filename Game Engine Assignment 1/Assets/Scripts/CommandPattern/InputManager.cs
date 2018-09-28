@@ -4,16 +4,27 @@ using UnityEngine;
 
 namespace CommandDesign
 {
-	public class InputManager : MonoBehaviour {
+	public class InputManager : MonoBehaviour
+	{
+		public Transform paddlePos;
+		private Command buttonA, buttonD;
 
-		// Use this for initialization
-		void Start () {
-			
+		void Start()
+		{
+			buttonA = new MoveLeft();
+			buttonD = new MoveRight();
 		}
-		
-		// Update is called once per frame
-		void Update () {
-			
+
+		public void HandleInput()
+		{
+			if(Input.GetKeyDown(KeyCode.A))
+			{
+				buttonA.Execute(paddlePos, buttonA);
+			}
+			else if(Input.GetKeyDown(KeyCode.D))
+			{
+				buttonD.Execute(paddlePos, buttonD);
+			}
 		}
 	}
 }
