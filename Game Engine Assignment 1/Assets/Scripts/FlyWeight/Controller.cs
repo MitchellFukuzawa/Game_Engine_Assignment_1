@@ -23,6 +23,7 @@ public class Controller : MonoBehaviour
 	public GameObject winTextObj;
 	Subject subject = new Subject();
 	private bool once = false;
+
 	void Start()
 	{
 		//Fly
@@ -31,8 +32,26 @@ public class Controller : MonoBehaviour
 		//Observer
 		winTextObj.SetActive(false);
 		BrickObserver brick0 = new BrickObserver(brick0Obj, winTextObj);
+		BrickObserver brick4 = new BrickObserver(brick4Obj, winTextObj);
+		BrickObserver brick8 = new BrickObserver(brick8Obj, winTextObj);
+		BrickObserver brick12 = new BrickObserver(brick12Obj, winTextObj);
+		BrickObserver brick16 = new BrickObserver(brick16Obj, winTextObj);
+		BrickObserver brick20 = new BrickObserver(brick20Obj, winTextObj);
+		BrickObserver brick24 = new BrickObserver(brick24Obj, winTextObj);
+		BrickObserver brick28 = new BrickObserver(brick28Obj, winTextObj);
+		BrickObserver brick32 = new BrickObserver(brick32Obj, winTextObj);
+		BrickObserver brick36 = new BrickObserver(brick36Obj, winTextObj);
+
 		subject.AddObserver(brick0);
-		
+		subject.AddObserver(brick4);
+		subject.AddObserver(brick8);
+		subject.AddObserver(brick12);
+		subject.AddObserver(brick16);
+		subject.AddObserver(brick20);
+		subject.AddObserver(brick24);
+		subject.AddObserver(brick28);
+		subject.AddObserver(brick32);
+		subject.AddObserver(brick36);
 	}
 
 	void Update()
