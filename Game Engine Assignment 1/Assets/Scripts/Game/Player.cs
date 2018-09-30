@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public float speed = 1.0f;
+    public float speed = 0.5f;
 
     private Vector3 playerPos = new Vector3(0, -50.0f, 0); 
     // Use this for initialization

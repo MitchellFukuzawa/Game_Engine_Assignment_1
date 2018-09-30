@@ -66,6 +66,7 @@ public class GM : MonoBehaviour {
         lives--;
         livesText.text = "Lives: " + lives;
         Invoke("SetupPaddle", resetDelay);
+        Destroy(clonePaddle);
         CheckGameOver(); 
     }
 

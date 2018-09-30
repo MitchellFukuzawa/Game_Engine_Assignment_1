@@ -239,7 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111c2152b9e44094cb723a8273397fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickParticle: {fileID: 0}
+  brickParticle: {fileID: 1704626006218310, guid: f9826f705b2dde24db1ad71d640b2ea2,
+    type: 2}
 --- !u!65 &82928170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3189,6 +3190,81 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.026143856, y: 0.020000007, z: 0.02}
   m_Center: {x: -0.0030719247, y: -9.313225e-10, z: 0}
+--- !u!1 &1274670760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274670763}
+  - component: {fileID: 1274670762}
+  - component: {fileID: 1274670761}
+  m_Layer: 5
+  m_Name: WinText_Observer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1274670761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274670760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 27
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: You Killed a Brick
+--- !u!222 &1274670762
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274670760}
+  m_CullTransparentMesh: 0
+--- !u!224 &1274670763
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274670760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1841905645}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 276.4, y: 51.832}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1293546146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4791,6 +4867,7 @@ RectTransform:
   - {fileID: 1173124750}
   - {fileID: 447698254}
   - {fileID: 420751970}
+  - {fileID: 1274670763}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4949,7 +5026,7 @@ GameObject:
   - component: {fileID: 1870146567}
   - component: {fileID: 1870146566}
   m_Layer: 0
-  m_Name: FlyWeight
+  m_Name: GM_DesignPatterns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4968,6 +5045,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickParent: {fileID: 1293546146}
   brickTex: {fileID: 2800000, guid: 4ae8518a6e5bf9f4994da3cbbf71bb2a, type: 3}
+  brick0Obj: {fileID: 1189003628}
+  brick4Obj: {fileID: 1456412345}
+  brick8Obj: {fileID: 2033896263}
+  brick12Obj: {fileID: 246832047}
+  brick16Obj: {fileID: 1325371422}
+  brick20Obj: {fileID: 158187251}
+  brick24Obj: {fileID: 278836172}
+  brick28Obj: {fileID: 694131415}
+  brick32Obj: {fileID: 1523557111}
+  brick36Obj: {fileID: 2008721512}
+  winTextObj: {fileID: 1274670760}
 --- !u!4 &1870146567
 Transform:
   m_ObjectHideFlags: 0
