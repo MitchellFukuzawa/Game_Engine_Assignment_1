@@ -18,7 +18,7 @@ public class Start : Keybinding
         gameObj.GetComponent<Transform>().parent = null;
         gameObj.ballInPlay = true;
         gameObj.GetComponent<Rigidbody>().isKinematic = false;
-        gameObj.GetComponent<Rigidbody>().AddForce(new Vector3(gameObj.ballVelocity.x * 5, gameObj.ballVelocity.y * 5, 0));
+        gameObj.GetComponent<Rigidbody>().AddForce(new Vector3(gameObj.ballVelocity.x * 4 * RandPlugin.Random(1, 1), gameObj.ballVelocity.y * 4 * RandPlugin.Random(1, 1), 0));
     }
 
     public override void ButtonPressed(GameObject affectedObj)
@@ -33,7 +33,7 @@ public class Left : Keybinding
 {
     public override void ButtonPressed(GameObject affectedObj)
     {
-        float xPos = affectedObj.transform.position.x + (Input.GetAxis("Horizontal") * 100.0f);
+        float xPos = affectedObj.transform.position.x + (Input.GetAxis("Horizontal") * 50.0f);
         Vector3 pos = new Vector3(Mathf.Clamp(xPos, -90.0f, 90.0f), affectedObj.transform.position.y, 0.0f);
         affectedObj.transform.position = pos;
     }
@@ -43,7 +43,7 @@ public class Right : Keybinding
 {
     public override void ButtonPressed(GameObject affectedObj)
     {
-        float xPos = affectedObj.transform.position.x + (Input.GetAxis("Horizontal") * 100.0f);
+        float xPos = affectedObj.transform.position.x + (Input.GetAxis("Horizontal") * 50.0f);
         Vector3 pos = new Vector3(Mathf.Clamp(xPos, -90.0f, 90.0f), affectedObj.transform.position.y, 0.0f);
         affectedObj.transform.position = pos;
     }

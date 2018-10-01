@@ -19,13 +19,12 @@ public class GM : MonoBehaviour
     public static GM instance = null; //accessable from other scripts ex, GM.instance.bricks
     public bool gamePaused = false;
 
-    private GameObject clonePaddle;
+    public GameObject clonePaddle;
     public GameObject undo;
 
     public Keybinding[] commandList = new Keybinding[4];
     public Stack<KeyCode> commandStack = new Stack<KeyCode>();
     public Stack<int> keyBindStack = new Stack<int>();
-
     // Use this for initialization
     void Awake()
     {
