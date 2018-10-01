@@ -36,6 +36,7 @@ public class GM : MonoBehaviour {
         //Instantiate(bricksPrefab, transform.position, Quaternion.identity); 
     }
 
+
     void CheckGameOver()
     {
         if (bricks < 1)
@@ -66,6 +67,7 @@ public class GM : MonoBehaviour {
         lives--;
         livesText.text = "Lives: " + lives;
         Invoke("SetupPaddle", resetDelay);
+        Destroy(clonePaddle);
         CheckGameOver(); 
     }
 
