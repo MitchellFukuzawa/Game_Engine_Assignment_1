@@ -18,9 +18,9 @@ public class Player : MonoBehaviour {
         //float v = Input.GetAxisRaw("Horizontal");
         //print(Input.GetAxisRaw("Horizontal"));
 
-        float xPos = transform.position.x + (Input.GetAxis("Horizontal") * speed);
-        playerPos = new Vector3(Mathf.Clamp(xPos, -90.0f, 90.0f), -50.0f, 0f);
-        transform.position = playerPos;
+     //   float xPos = transform.position.x + (Input.GetAxis("Horizontal") * speed);
+     //   playerPos = new Vector3(Mathf.Clamp(xPos, -90.0f, 90.0f), -50.0f, 0f);
+     //   transform.position = playerPos;
 
        /* if (Input.GetKey(KeyCode.A))
             transform.Translate(Vector3.left * Time.deltaTime * speed);
