@@ -6,15 +6,24 @@ public class Player : MonoBehaviour {
 
     public float speed = 0.5f;
 
-    private Vector3 playerPos = new Vector3(0, -50.0f, 0); 
+    private Vector3 playerPos = new Vector3(0, -50.0f, 0);
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        ObserverP.onPaddle += paddleColor; // where we subscribe
+    }
 
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void paddleColor(Color color)
+    {
+        transform.GetComponent<Renderer>().material.color = color;
+    }
+    void OnDisable()
+    {
+        ObserverP.onPaddle -= paddleColor; // where we unsubscribe if we want to delete object ingame
+    }
+
+    // Update is called once per frame
+    void Update () {
         //float v = Input.GetAxisRaw("Horizontal");
         //print(Input.GetAxisRaw("Horizontal"));
 
