@@ -28,6 +28,10 @@ public class Controller : MonoBehaviour
 	{
 		//Fly
 		brickParent.transform.Find("Brick0").GetComponent<Renderer>().sharedMaterial.mainTexture = brickTex;
+
+		//NoFly
+		// for (int i = 0; i < 32; i++)
+		// 	brickParent.transform.Find("Brick" + i).GetComponent<Renderer>().material.mainTexture = new Texture2D(1000,1000);
 		
 		//Observer
 		winTextObj.SetActive(false);

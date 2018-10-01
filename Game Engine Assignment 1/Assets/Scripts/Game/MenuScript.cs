@@ -99,6 +99,8 @@ public class MenuScript : MonoBehaviour
             case "Start":
                 GM.instance.commandStack.Push(GM.instance.commandList[0].button); // Add old key bind to Stack
                 GM.instance.keyBindStack.Push(GM.instance.commandList[0].ID); // make sure we know what keyclass it was
+                GM.instance.commandRedoStack.Clear();
+                GM.instance.keyBindRedoStack.Clear();
 
                 GM.instance.commandList[0].button = newKey;
                 buttonText.text = GM.instance.commandList[0].button.ToString();
@@ -108,6 +110,8 @@ public class MenuScript : MonoBehaviour
             case "Left":
                 GM.instance.commandStack.Push(GM.instance.commandList[1].button); // Add old key bind to Stack
                 GM.instance.keyBindStack.Push(GM.instance.commandList[1].ID); // make sure we know what keyclass it was
+                GM.instance.commandRedoStack.Clear();
+                GM.instance.keyBindRedoStack.Clear();
 
                 GM.instance.commandList[1].button = newKey;
                 buttonText.text = GM.instance.commandList[1].button.ToString();
@@ -116,6 +120,8 @@ public class MenuScript : MonoBehaviour
             case "Right":
                 GM.instance.commandStack.Push(GM.instance.commandList[2].button); // Add old key bind to Stack
                 GM.instance.keyBindStack.Push(GM.instance.commandList[2].ID); // make sure we know what keyclass it was
+                GM.instance.commandRedoStack.Clear();
+                GM.instance.keyBindRedoStack.Clear();
 
                 GM.instance.commandList[2].button = newKey;
                 buttonText.text = GM.instance.commandList[2].button.ToString();
@@ -129,6 +135,10 @@ public class MenuScript : MonoBehaviour
                 //GM.instance.commandStack.Push(newKey); // Add old key bind to Stack
                 //GM.instance.keyBindStack.Push(GM.instance.commandList[3].ID); // make sure we know what keyclass it was
                 break;
+            case "Redo":
+//                    GM.instance.RedoStack();
+                    
+                break;  
         }
         yield return null;
     }
