@@ -39,7 +39,7 @@ public class ObserverP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(GM.instance.commandList[0].button))
         //damage enemy
         {
             if (onPaddle != null && blue) // check if anyone is subscribed to on enemy hit, if not null people are listening to this event 

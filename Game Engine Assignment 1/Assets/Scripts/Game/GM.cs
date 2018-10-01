@@ -19,7 +19,7 @@ public class GM : MonoBehaviour
     public static GM instance = null; //accessable from other scripts ex, GM.instance.bricks
     public bool gamePaused = false;
 
-    private GameObject clonePaddle;
+    public GameObject clonePaddle;
     public GameObject undo;
 
     public Keybinding[] commandList = new Keybinding[4];
@@ -55,6 +55,7 @@ public class GM : MonoBehaviour
     public void Setup()
     {
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+        clonePaddle.transform.position = transform.position + new Vector3(0,-50,0);
         //Instantiate(bricksPrefab, transform.position, Quaternion.identity); 
     }
 
@@ -95,6 +96,8 @@ public class GM : MonoBehaviour
     void SetupPaddle()
     {
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+        clonePaddle.transform.position = transform.position + new Vector3(0, -50, 0);
+
     }
 
     public void Destroybrick()

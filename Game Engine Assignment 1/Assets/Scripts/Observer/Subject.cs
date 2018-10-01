@@ -22,6 +22,6 @@ public class Subject
 	
 	public void RemoveObserver(Observer observer)
 	{
-		;
-	}
+        observers.Remove(observer);
+    }
 }

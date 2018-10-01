@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour {
+public class Ball : MonoBehaviour
+{
 
     public Vector3 ballVelocity = new Vector3(100.0f, 100.0f, 0.0f);
 
@@ -11,14 +12,16 @@ public class Ball : MonoBehaviour {
     private Vector3 ballPausedVelocity;
 
     // Use this for initialization
-    void Awake () {
+    void Awake()
+    {
 
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (ballInPlay == true)
         {
@@ -43,7 +46,7 @@ public class Ball : MonoBehaviour {
 
         if (Input.GetKey(GM.instance.commandList[0].button) && ballInPlay == false && GM.instance.gamePaused == false)
         {
-           // transform.parent = null; //unparent ball from paddle 
+            // transform.parent = null; //unparent ball from paddle 
             ballInPlay = true;
             //rb.isKinematic = false;
             //rb.AddForce(new Vector3(ballVelocity.x * 5, ballVelocity.y * 5, 0));
