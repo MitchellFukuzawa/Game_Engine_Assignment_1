@@ -20,6 +20,7 @@ public class GM : MonoBehaviour
     public bool gamePaused = false;
 
     private GameObject clonePaddle;
+    public GameObject undo;
 
     public Keybinding[] commandList = new Keybinding[4];
     public Stack<KeyCode> commandStack = new Stack<KeyCode>();
@@ -148,7 +149,7 @@ public class GM : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(commandList[3].button))
+        if (Input.GetKeyUp(commandList[3].button) && gamePaused)
         {
             undoStack();
         }

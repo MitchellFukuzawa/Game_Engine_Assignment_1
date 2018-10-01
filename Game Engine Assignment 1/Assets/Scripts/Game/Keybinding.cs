@@ -12,9 +12,21 @@ public abstract class Keybinding
 }
 public class Start : Keybinding
 {
-    public override void ButtonPressed(GameObject affectedObj)
+    private void KickChildOut(Ball gameObj)
     {
 
+        gameObj.GetComponent<Transform>().parent = null;
+        gameObj.ballInPlay = true;
+        gameObj.GetComponent<Rigidbody>().isKinematic = false;
+        gameObj.GetComponent<Rigidbody>().AddForce(new Vector3(gameObj.ballVelocity.x * 5, gameObj.ballVelocity.y * 5, 0));
+    }
+
+    public override void ButtonPressed(GameObject affectedObj)
+    {
+        if (affectedObj.transform.childCount > 0)
+        {
+            KickChildOut( affectedObj.transform.GetChild(0).GetComponent<Ball>());
+        }
     }
 }
 public class Left : Keybinding

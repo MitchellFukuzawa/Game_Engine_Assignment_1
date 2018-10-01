@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour {
     public Vector3 ballVelocity = new Vector3(100.0f, 100.0f, 0.0f);
 
     private Rigidbody rb;
-    private bool ballInPlay;
+    public bool ballInPlay;
     private Vector3 ballPausedVelocity;
 
     // Use this for initialization
@@ -39,12 +39,14 @@ public class Ball : MonoBehaviour {
                 ballPausedVelocity = new Vector3(0.0f, 0.0f);
             }
         }
+
+
         if (Input.GetKey(GM.instance.commandList[0].button) && ballInPlay == false && GM.instance.gamePaused == false)
         {
-            transform.parent = null; //unparent ball from paddle 
+           // transform.parent = null; //unparent ball from paddle 
             ballInPlay = true;
-            rb.isKinematic = false;
-            rb.AddForce(new Vector3(ballVelocity.x * 5, ballVelocity.y * 5, 0));
+            //rb.isKinematic = false;
+            //rb.AddForce(new Vector3(ballVelocity.x * 5, ballVelocity.y * 5, 0));
         }
 
     }
