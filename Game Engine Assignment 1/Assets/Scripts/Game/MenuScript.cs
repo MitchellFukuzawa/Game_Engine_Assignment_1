@@ -97,33 +97,37 @@ public class MenuScript : MonoBehaviour
         switch (keyName)
         {
             case "Start":
+                GM.instance.commandStack.Push(GM.instance.commandList[0].button); // Add old key bind to Stack
+                GM.instance.keyBindStack.Push(GM.instance.commandList[0].ID); // make sure we know what keyclass it was
+
                 GM.instance.commandList[0].button = newKey;
                 buttonText.text = GM.instance.commandList[0].button.ToString();
                 PlayerPrefs.SetString("startKey", GM.instance.commandList[0].button.ToString()); // rplaces string
-                GM.instance.commandQueue.Enqueue(newKey); // Add old key bind to queue
-                GM.instance.keyBindQueue.Enqueue(GM.instance.commandList[0].ID); // make sure we know what keyclass it was
                 break;
             // Repeat for each Button
             case "Left":
+                GM.instance.commandStack.Push(GM.instance.commandList[1].button); // Add old key bind to Stack
+                GM.instance.keyBindStack.Push(GM.instance.commandList[1].ID); // make sure we know what keyclass it was
+
                 GM.instance.commandList[1].button = newKey;
                 buttonText.text = GM.instance.commandList[1].button.ToString();
                 PlayerPrefs.SetString("leftKey", GM.instance.commandList[1].button.ToString());
-                GM.instance.commandQueue.Enqueue(newKey); // Add old key bind to queue
-                GM.instance.keyBindQueue.Enqueue(GM.instance.commandList[1].ID); // make sure we know what keyclass it was
                 break;
             case "Right":
+                GM.instance.commandStack.Push(GM.instance.commandList[2].button); // Add old key bind to Stack
+                GM.instance.keyBindStack.Push(GM.instance.commandList[2].ID); // make sure we know what keyclass it was
+
                 GM.instance.commandList[2].button = newKey;
                 buttonText.text = GM.instance.commandList[2].button.ToString();
                 PlayerPrefs.SetString("rightKey", GM.instance.commandList[2].button.ToString());
-                GM.instance.commandQueue.Enqueue(newKey); // Add old key bind to queue
-                GM.instance.keyBindQueue.Enqueue(GM.instance.commandList[2].ID); // make sure we know what keyclass it was
+
                 break;
             case "Restart":
-                GM.instance.commandList[3].button = newKey;
-                buttonText.text = GM.instance.commandList[3].button.ToString();
-                PlayerPrefs.SetString("restartKey", GM.instance.commandList[3].button.ToString());
-                GM.instance.commandQueue.Enqueue(newKey); // Add old key bind to queue
-                GM.instance.keyBindQueue.Enqueue(GM.instance.commandList[3].ID); // make sure we know what keyclass it was
+                //GM.instance.commandList[3].button = newKey;
+                //buttonText.text = GM.instance.commandList[3].button.ToString();
+                //PlayerPrefs.SetString("restartKey", GM.instance.commandList[3].button.ToString());
+                //GM.instance.commandStack.Push(newKey); // Add old key bind to Stack
+                //GM.instance.keyBindStack.Push(GM.instance.commandList[3].ID); // make sure we know what keyclass it was
                 break;
         }
         yield return null;

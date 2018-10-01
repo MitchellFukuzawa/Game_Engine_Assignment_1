@@ -22,8 +22,8 @@ public class GM : MonoBehaviour
     private GameObject clonePaddle;
 
     public Keybinding[] commandList = new Keybinding[4];
-    public Queue<KeyCode> commandQueue = new Queue<KeyCode>();
-    public Queue<int> keyBindQueue = new Queue<int>();
+    public Stack<KeyCode> commandStack = new Stack<KeyCode>();
+    public Stack<int> keyBindStack = new Stack<int>();
 
     // Use this for initialization
     void Awake()
@@ -102,14 +102,32 @@ public class GM : MonoBehaviour
         CheckGameOver();
     }
 
-    public void undoQueue()
+    public void undoStack()
     {
-     //   int undoID = keyBindQueue.Dequeue();
-     //   commandList[undoID].button = newKey;
-     //
-     //    buttonText.text = commandList[undoID].button.ToString();
-     //   PlayerPrefs.SetString("startKey", GM.instance.commandList[0].button.ToString()); // rplaces string
+        if (keyBindStack.Count > 0 && commandStack.Count > 0)
+        {
+            int undoID = keyBindStack.Pop();
+            print("past : " + commandList[undoID].button);
+            commandList[undoID].button = commandStack.Pop();
+            print(undoID);
+            if (undoID == 0)
+            {
+              System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("startKey", commandList[undoID].button.ToString()));
+              GameObject.Find("Start").GetComponentInChildren<Text>().text = commandList[0].button.ToString(); 
+            }
+            else if (undoID == 1)
+            {
+               System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey", commandList[undoID].button.ToString()));
+               GameObject.Find("Left").GetComponentInChildren<Text>().text = commandList[1].button.ToString(); ; 
+            }
+            else if (undoID == 2)
+            {
+              System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey", commandList[undoID].button.ToString()));
+              GameObject.Find("Right").GetComponentInChildren<Text>().text = commandList[2].button.ToString(); ;
+            }
+            print("current : " + commandList[undoID].button);
 
+        }
     }
 
     // Update is called once per frame
@@ -130,11 +148,9 @@ public class GM : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(commandList[3].button))
+        if (Input.GetKeyUp(commandList[3].button))
         {
-           
-
-
+            undoStack();
         }
     }
 
